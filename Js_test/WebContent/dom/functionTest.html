@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script type="text/javascript">
+function test(_func) {
+	var func = eval(_func);
+	func.call();
+}
+
+function func2() {
+	var func = red;
+	func.call();
+}
+function func3() {
+	var func = green;
+	func.call();
+}
+
+function red() {
+	alert(' red함수 호출');
+}
+function green() {
+	alert(' green함수 호출');
+}
+function blue() {
+	alert(' blue함수 호출');
+}
+
+</script>
+</head>
+<body>
+<table width='500' height='200' align="center" border="5">
+<tr>
+<td>
+<form name="frmTest">
+호출하고 싶은 함수명 입력<br>
+<input type="text" name="funcName" size="50">
+	<input type="button" name="btmFunction" onclick="test(this.form.funcName.value)" value="함수 호출">
+	<input type="button" name="btmFunction2" onclick="func2()" value="red함수 호출">
+	<input type="button" name="btmFunction3" onclick="func3()" value="green함수 호출">
+</form>
+</table>
+</body>
+</html>

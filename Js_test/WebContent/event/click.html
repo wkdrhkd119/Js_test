@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<script type="text/javascript">
+
+function sendURL(url) {
+	document.getElementById("url").value=url;
+}
+
+
+
+function sendit(){
+  /*
+  document: 브러우저에 출력된 문서를 나타내는 객체, 문서 전체 접근
+  regiform: 폼 객체
+  url: INPUT관련 객체
+  value: INPUT관련 객체의 속성
+  */
+  // str = document.frm.url.value;
+  str = document.getElementById("url").value;
+  alert(str);
+   
+  if(str == "" ) {
+    alert("주소를 입력해 주세요");
+    document.regiform.url.focus(); // 마우스 커서 이동 예) 전화번호 입력: 000 0000 0000
+  }else if(str.startsWith("http://")==false){
+	 location.href = "http://"+str;  
+  }else{
+     location.href = str;     // location 객체: 주소 관련 객체, href: 주소 값, 이동
+  }
+}
+</script>
+ 
+
+ 
+ 
+ 
+</head>
+<body>
+  <form name="frm" method="post">
+    <!-- id  : 태그 검색시 자바 스크립트가 사용, document.getElementById('url');
+         name: request.getParameter("url") -->
+    <INPUT type="text" id="url" name="url" size="50">
+    <button type="button" onclick="sendURL()">교보문고</button>
+    <button type="button" onclick="sendURL('http://www.daum.net')">다음</button>
+    <button type="button" onclick="sendURL()">기상청</button>
+    <button type="button" onclick="sendit()">주소이동</button>
+  </form> 
+</body>
+</html>

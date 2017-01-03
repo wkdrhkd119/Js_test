@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+font-family: gulim;
+font-size: 22px;
+}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+  function makeTable(f){
+	row = f.row.value;  
+	col = f.col.value;
+	if(isFinite(row)==false){
+		alert("숫자를 입력하세요.");
+		f.row.value="";
+		f.row.focus();
+		
+	}else if(parseInt(row)<3 || parseInt(row)>10){
+		alert("값의 범위가 3~10입니다.")
+		f.row.value="";
+		f.row.focus();
+		
+	}else if(isFinite(col)==false){
+		alert("숫자를 입력하세요.");
+		f.col.value="";
+		f.col.focus();
+		
+	}else if(parseInt(col)<3 || parseInt(col)>10){
+		alert("값의 범위가 3~10입니다.")
+		f.col.value="";
+		f.col.focus();
+		
+	}else{
+		//alert("테이블 생성합니다.")
+		document.getElementById("panel").innerHTML=makeT(row,col);
+	}
+   	  
+  }
+  
+  function makeT(r,c) {
+	var row = parseInt(r);
+	var col = parseInt(c);
+	var text = "";
+	
+	text += "<table border='1' width=30%>";
+	text += "<caption>테이블 생성</caption>";
+	
+	var k =0;
+	for(var i=0;i<row;i++){
+		text +="<tr>";
+		for(var j=0; j<col; j++){
+			text += "<td>" +(k++)+ "</td>";
+		}
+		text += "</tr>";
+	}	
+	text += "</table>"
+	return text;
+} 
+  
+</SCRIPT>
+</HEAD>
+ 
+ 
+<BODY>
+<FORM>
+행의수: <Input type="text" name="row" id="row" value="1" size="20"><br>
+열의수: <Input type="text" name="col" id="col" value="1" size="20"><br>
+<button type="button" onclick="makeTable(this.form)">생성</button>
+</FORM>
+<DIV id='panel'>
+
+
+</DIV>
+
+
+
+</BODY>
+</HTML>

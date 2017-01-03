@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	var i = 1;
+
+	function append() {
+		i = i + 1;
+		var parentdiv = document.getElementById("fileHolder");
+		var divel = document.createElement("div");
+		var ffile = document.createElement('input');
+		ffile.type = "file";
+
+		divel.appendChild(document.createTextNode("파일 선택 " + i + ": "));
+		parentdiv.appendChild(divel);
+		divel.appendChild(ffile);
+	}
+
+	function del() {
+		if (i != 1)
+			i = i - 1;
+		var parentdiv = document.getElementById("fileHolder");
+		var lastChild = parentdiv.lastChild;
+		parentdiv.removeChild(lastChild);
+	}
+</script>
+
+<body>
+	<input type="button" name="btnAdd" onclick="append()" value="파일 선택 추가" />
+	<input type="button" name="btnAdd" onclick="del()" value="파일 선택 제거" />
+	<br />
+	<div>
+		파일 선택 1: <input type="file" name="file" />
+	</DIV>
+	<DIV id="fileHolder"></DIV>
+</body>
+</html>

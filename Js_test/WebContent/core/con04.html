@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var num,i
+
+num=prompt("1부터 9사이의 수를 입력하세요.","2");
+
+pl("입력한 숫자" +num+ "에 대한구구단<br>");
+
+for(i=1;i<=9;i++){
+	pl(num +"X"+ i +"="+ (num*i));
+}
+
+function pl(str) {
+	
+document.write(str +"<br>");
+}
+
+</script>
+
+</body>
+</html>

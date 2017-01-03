@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo">Let AJAX change this text.</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script type="text/javascript">
+	function loadDoc() {
+		var xhttp;
+		if(window.XMLHttpRequest){
+			xhttp = new XMLHttpRequest();
+		}else{
+			xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xhttp.onreadystatechange = function(){
+			if(xhttp.readyState==4 && xhttp.status==200){
+				alert(xhttp.responseText);
+				document.getElementById("demo").innerHTML = xhttp.responseText;
+			}
+		};
+		xhttp.open("GET","ajax_info.html",true);
+		xhttp.send();
+	}
+
+</script>
+
+</body>
+</html>

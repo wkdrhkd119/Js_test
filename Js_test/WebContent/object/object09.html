@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script type="text/javascript">
+function person(first,last,age,eye) {
+	this.firstName=first;
+	this.lastName=last;
+	this.age=age;
+	this.eyeColer=eye;
+}
+var myFather = new person("Joh", "do", 50, "blue");
+var myMather = new person("She", "Rally", 40, "Red");
+
+myFather.name = function(){
+	return this.firstName +""+ this.lastName;
+}
+
+//myFather.nationality = "English"; //속성 추가
+
+document.getElementById("demo").innerHTML=
+"My father is "+myFather.name();
+//"My father is "+myFather.nationality;
+//"My father is" +myFather.age+	"Mymather is" +myMather.age;
+
+
+</script> 
+
+
+</body>
+</html>

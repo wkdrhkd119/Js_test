@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+var oldVal = '';
+var newVal = '';
+
+function ok(f) {
+	if(oldVal=="" && newVal==""){
+		newVal = f.keyword.value;
+	}else if(f.keyword.value==""){
+		return;
+	}else{
+		oldVal = newVal;
+		newVal = f.keyword.value;
+	}
+	
+	var divTag = document.getElementById('panel');
+	var str = 'oldVal:'+oldVal +'/ newVal:' + newVal;
+	divTag.innerHTML = divTag.innerHTML+'<br>'+str;
+}
+</script>
+</head>
+<body>
+<form method="post" name="frm">
+	<input type="text" name="keyword" style="width: 80%;"/>
+	<input type='button' name='btnOK' value='확인' onclick="ok(this.form);"/>
+</form>
+	<div id='panel' class="abc" style='font-size: 24px'></div>
+
+
+</body>
+</html>

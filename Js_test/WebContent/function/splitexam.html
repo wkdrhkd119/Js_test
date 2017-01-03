@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+<script type="text/javascript">
+var DTOlist = '가길동,100,90/나길동,100,90/다길동,100,90';
+var arrayDTO = DTOlist.split('/');
+
+for(var i=0; i<arrayDTO.length;i++){
+	document.write(arrayDTO[i]+'<br/>');
+}
+document.write("<HR>");
+document.write('<br/>성적 계산 목록' + '<br/><br/>');
+
+for(i=0; i<arrayDTO.length; i++){
+	var dto = arrayDTO[i];
+	var str = dto.split(',');
+	
+	document.write('성명: '+str[0]+'<br/>');
+	document.write('영어: '+str[1]+'<br/>');
+	document.write('수학: '+str[2]+'<br/>');
+	
+	var eng = parseInt(str[1]);
+	var mat = parseInt(str[2]);
+	
+	document.write('총점: ' + (eng + mat) + '<br/>');
+	document.write('평균: ' + ((eng + mat)/2) + '<br/>');
+	document.write('-----------------------------<br/>');
+}
+
+</script>
+
+</body>
+</html>

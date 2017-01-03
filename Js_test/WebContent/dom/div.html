@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+    // ⓐ innerText는 div 태그의 값을 가져옵니다.
+    var div1text = document.all.div1.innerText;
+ 
+    // ⓑ firstChild.nodeValue는 div2 태그의 값을 가져옵니다.
+    var div2el = document.getElementById('div2');
+    var div2text = div2el.firstChild.nodeValue;
+ 
+    // ⓒ 모든 브러우저를 호환함
+    // document.getElementById('div3').textContent 조건문은 FireFox인지 검사
+    // FireFox는 textContent 속성으로 DIV 태그의 내용을 가져옵니다.
+    var div3text = (document.getElementById('div3').textContent)? document.getElementById('div3').textContent : document.getElementById('div3').innerText ;
+ 
+    // 경고창
+    alert ("div1text :" + div1text +"\r\n" + "div2text :" + div2text +"\r\n" +
+"div3text :" + div3text );
+}
+ </script>
+</head>
+<body>
+<div id='div1'>백두산</div><br>
+  <div id='div2'>한라산</div><br>
+  <div id='div3'>금강산</div><br>
+  <div id='div4'>설악산</div><br>
+  <div id='div5'>관악산</div><br>
+</body>
+</html>

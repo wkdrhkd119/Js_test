@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<H2>escape와 unescape</H2>
+<script type="text/javascript">
+var temp1, temp2;
+
+document.write("원본:" +"123-ABC-abc-미합중국/러시아/중국-!?#$%"+"<br>" )
+
+temp1=escape("123-ABC-abc-미합중국/러시아/중국-!?#$%");
+temp2=unescape(temp1);
+
+document.write("escape: " + temp1 + "<br><br>");
+document.write("unescape: " + temp2);
+</script>
+
+</body>
+</html>

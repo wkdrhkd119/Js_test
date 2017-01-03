@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="utility.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+  var wc="KOREA VICTORY";
+  var prn = wc.charAt(0);  // 0번째 문자 추출
+ 
+  p("<h2>");
+  pl(prn);                 // K
+  pl(wc.charAt(1));        // O
+  pl(wc.charAt(2));        // R 
+  pl();                    // 라인 변경
+  pl("V의 위치: " + wc.indexOf("V")); // 6
+  pl("R이 마지막으로 나타난 위치: " + wc.lastIndexOf("R")); // 11
+  pl("문자열의 길이:" + "대한민국 WBC".length); //8
+ 
+  var tot=10;
+  pl("tot+tot: " + (tot+tot));
+  pl("parseInt: " + (parseInt('10')+parseInt('10')));
+      
+   p("</h2>");   
+</Script>
+</body>
+</html>

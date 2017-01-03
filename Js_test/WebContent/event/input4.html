@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style>
+<Script type="text/javascript">
+ 
+// 폼의 input태그가 입력을 받았는지 검사
+function check(f){
+    // f = document.myform
+    if (f.wname.value=="" || f.wname.value.length==0){
+        window.alert("이름을 입력해 주십시오.");
+        f.wname.focus();
+    }else if(f.subject.value.length==0){
+        window.alert("제목을 입력해 주십시오.");
+        f.subject.focus();
+    }
+    else if (f.wcontent.value=="" || f.wcontent.value.length==0){
+        alert("내용을 입력해 주십시오.");
+        f.wcontent.focus();
+    }
+    else {
+            f.submit();
+    }
+}
+</Script>
+</head>
+ 
+<body>
+<!-- return false: submit 진행 안함, 
+    return true: submit 진행-->
+<form method='post' action='write_f.jsp' name='frm'>
+    <table width="63%" border="0" align="center">
+      <tr> 
+        <td height="22" colspan="2">방 명 록</td>
+      </tr>
+      <tr> 
+        <td width="15%" height="23">이름</td>
+        <td width="85%"><input type="text" name="wname"></td>
+      </tr>
+      <tr> 
+        <td>제목</td>
+        <td><input type="text" name="subject" size=50></td>
+      </tr>
+      <tr> 
+        <td>내용</td>
+        <td><textarea name="wcontent" cols=54 rows=8></textarea></td>
+      </tr>
+      <tr align="center" valign="middle"> 
+        <td colspan="2">
+            <!-- A태그는 Form 태그가 아님으로 this를 사용못함. 따라서
+                  폼을 전달시 폼의 이름을 직접 명시할것. -->
+            <a href="javascript:check(frm)">
+              <img src = "./images/new.gif" border='0'>
+            </a>
+          </td>
+      </tr>
+    </table>
+</form>
+</body>
+</html>

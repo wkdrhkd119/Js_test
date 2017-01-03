@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style> 
+</head>
+<body>
+<H2> 전역 변수와 지역 변수</H2>
+<HR>
+<script type="text/javascript">
+  var global = "전역 변수";
+  
+  // 리턴 타입을 명시하지 않음
+  function test(){
+    var local = "지역 변수"; // var을 생략해도 에러는 안남. 
+    
+    var local2 = "진짜 지역 변수";
+  }
+</script>
+ 
+<script type="text/javascript">
+	
+  function print(){
+	
+    document.write('global: ' + global);
+    document.write('<br>');
+    document.write('local : ' + local);  // 호출 가능?
+    document.write('<br>');
+    document.write('local2: ' + local2); // 호출 가능?
+ 
+  }
+ 
+</script>
+ 
+<script type="text/javascript">
+  test();
+  print();
+</script>
+</body>
+</html>

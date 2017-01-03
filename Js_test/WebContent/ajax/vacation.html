@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./httpRequest.js"></script>
+<script type="text/javascript">
+function sendSeason(season){
+	var params = "season="+encodeURIComponent(season);
+	//alert(params);
+	sendRequest("vacation_proc.jsp",params, response,"post");	
+}
+function response(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+			var dive= document.getElementById("display");
+			var result = httpRequest.responseText;
+			//alert(result);
+			var elem = result.split(',');
+			for(var i=0; i<elem.length; i++){
+				var inputel = document.createElement("input");
+			    
+		        inputel.type ='checkbox';
+		        inputel.value = elem[i];
+		        var texte = document.createTextNode(elem[i]);
+		        dive.appendChild(inputel);
+		        dive.appendChild(texte);
+			}    
+		}else{
+			alert("서버에러:"+httpRequest.status)
+		}
+	}
+}
+</script>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 20px; 
+} 
+</style> 
+<link href="${pageContext.request.contextPath}/css/style.css" rel="Stylesheet" type="text/css">
+</head>
+<body>
+<div class="content">
+<form name="frm">
+계절을 입력하세요(봄,여름,가을 겨울)
+<input type="text" name="season">
+<button type="button" onclick="sendSeason(this.form.season.value)">입력</button>
+<hr>
+<div id="display"></div>
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.onload=function(){
+	var word1 = document.getElementById("word1");
+	var result1 = document.getElementById("result1");
+	
+	word1.innerHTML = "test.jsp";
+	var str = word1.innerHTML;
+	
+	if(str.lastIndexOf(".jsp")>0)
+		result1.innerHTML = "전솔할수 없는 형식"
+}
+
+</script>
+
+</head>
+<body>
+<DIV id="panel">
+  <SPAN id="word1"></SPAN>: <SPAN id="result1"></SPAN><BR>
+</DIV>
+</body>
+</html>
