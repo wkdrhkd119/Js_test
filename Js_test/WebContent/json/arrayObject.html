@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" src="../ajax/httpRequest.js"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+    	sendRequest("arrayObject.jsp",null,response,"POST");
+    }
+   
+    function response() {
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){
+				var result = eval("("+httpRequest.responseText+")");
+				var str = "";
+				var list = result.list;
+				var cnt = list.length;
+				
+				str += "<table border='1' bgcolor='skyblue'>";
+				for(i=0; i<cnt; i++){
+					str += "<tr>";
+					str += "<td>"+list[i].name+"</td>";
+					str += "<td>"+list[i].kuk+"</td>";
+					str += "<td>"+list[i].eng+"</td>";
+					str += "</tr>";
+				}
+				str += "</table>";
+				var print = document.getElementById("print");
+				print.innerHTML = str;
+			}
+		}
+	}
+    </script>
+</head>
+<body>
+<div id="print"></div>
+</body>
+</html>

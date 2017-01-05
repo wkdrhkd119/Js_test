@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../ajax/httpRequest.js"></script>
+<script type="text/javascript">
+	function teamInfo() {
+		sendRequest("teaminfo.xml",null,loadTeam,"GET");
+	}
+	
+	function loadTeam() {
+		if(httpRequest.readyState == 4){
+			if(httpRequest.status == 200){
+				var xmlDoc = httpRequest.responseXML;
+				var teamList = xmlDoc.getElementsByTagName("team")
+				var message = "팀 인원 : "+teamList.length+"명\n";
+				var print = document.getElementById("print");
+								
+				var str = "<table class='table table-bordered'>";
+				str += "<tr>";
+				str += "<td>이름</td>";
+				str += "<td>번호</td>";
+				str += "<td>주소</td>";
+				str += "</tr>";
+			
+				for(var i=0; i<teamList.length; i++){
+					var team = teamList.item(i);
+					var nameValue = team.getElementsByTagName("name").item(0).firstChild.nodeValue;
+					var phoneValue = team.getElementsByTagName("phone").item(0).firstChild.nodeValue;
+					var addressValue = team.getElementsByTagName("address").item(0).firstChild.nodeValue;
+					
+					str += "<tr>";
+					str += "<td>"+nameValue+"</td>";
+					str += "<td>"+phoneValue+"</td>";
+					str += "<td>"+addressValue+"</td>";
+					str += "</tr>";
+					
+				}
+				str += "</table>";
+				print.innerHTML = str;
+				alert(message);
+
+			}
+		}
+	}
+	
+	window.onload=function(){
+		teamInfo();
+	}
+
+</script>
+
+
+
+</head>
+<body>
+<div id="print"></div>
+</body>
+</html>
