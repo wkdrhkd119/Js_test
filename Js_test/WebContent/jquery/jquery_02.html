@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("p#first").html("<strong>변경후</strong>"); //저장
+	$("p#second").html($("p#first").html()); //innerHTML 가져오기
+})
+
+</script>  
+
+</head>
+<body>
+<p id="first"> 변경전</p>
+<p id="second"> 변경전</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("strong").wrap("<h1></h1>");
+	$("div").wrapAll("<h2></h2>");
+	$("p").wrapInner("<strong></strong>");
+})
+
+</script>  
+
+</head>
+<body>
+<strong> 텍스트텍스트111 </strong>
+<strong> 텍스트텍스트222 </strong>
+ 
+<div> 텍스트텍스트111 </div>
+<div> 텍스트텍스트222 </div>
+<div> 텍스트텍스트333 </div>
+ 
+ 
+<p> 텍스트텍스트 </p>
+<p> 텍스트텍스트 </p>
+</body>
+</html>

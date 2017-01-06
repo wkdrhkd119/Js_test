@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+$("a:first").attr("href","http://daum.net/");
+ 
+$("a:first").text( $("a").attr("target","_blank") );
+ 
+$("a:last").removeAttr("target");
+});
+</script> 
+
+</head>
+<body>
+<a href="http://naver.com">링크</a>
+<a href="http://naver.com/" target="_blank">링크</a>
+</body>
+</html>
