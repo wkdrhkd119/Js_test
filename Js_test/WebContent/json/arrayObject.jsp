@@ -30,7 +30,7 @@
 		dto = (SungjukDTO)list.get(i);
 		jarray.add(dto.toJSONObject());
 	}
-	json.put("list",jarray);
+	json.put("soldesk",jarray);
 	out.print(json);
 
 %>

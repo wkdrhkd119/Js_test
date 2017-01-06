@@ -5,7 +5,7 @@ var httpRequest = null;
 // params: 서버로 보내는 값의 목록
 // response_function_name: 응답 결과를 처리할 함수 
 // method: GET, POST인지 결정
-function sendRequest(url, params, response_function_name, method) {
+function sendRequest(url,params,response_function_name, method) {
 
 	if (window.XMLHttpRequest) {
 		// code for modern browsers
@@ -20,7 +20,7 @@ function sendRequest(url, params, response_function_name, method) {
 	httpMethod = method.toLowerCase();
 
 	// 전송 값이 있는지 검사
-	var httpParams = (params == null || params == '') ? null : params;
+	var httpParams = (params == null || params == "") ? null : params;
 	var httpUrl = url;
 
 	// GET방식이면 GET 방식으로 조합
@@ -32,8 +32,7 @@ function sendRequest(url, params, response_function_name, method) {
 	httpRequest.open(httpMethod, httpUrl, true);
 
 	// 내용 타입 지정
-	httpRequest.setRequestHeader('Content-Type',
-			'application/x-www-form-urlencoded');
+	httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 
 	// 응답을 처리할 함수 지정    
 	httpRequest.onreadystatechange = response_function_name;
